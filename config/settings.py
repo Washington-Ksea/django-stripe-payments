@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
-import os
 import environ
+import os
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -129,7 +130,8 @@ read_env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 #秘密key
-STRIPE_SECRET_KEY = read_env['STRIPE_SECRET_KEY']
+STRIPE_SECRET_KEY = read_env('STRIPE_SECRET_KEY')
 
 #公開可能key
-STRIPE_PUBLISHABLE_KEY = read_env['STRIPE_PUBLISHABLE_KEY']
+STRIPE_PUBLISHABLE_KEY = read_env('STRIPE_PUBLISHABLE_KEY')
+
